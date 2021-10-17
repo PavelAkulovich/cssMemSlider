@@ -9,7 +9,7 @@ body {
 .container {
 
     margin: 0 auto;
-    width: 75vw;
+    width: 50vw;
 }
 
 .images {
@@ -24,6 +24,7 @@ body {
 
 .img {
     max-width: 100%;
+    
     display: block;
     object-fit: contain;
     transition: transform 1s;
@@ -33,6 +34,7 @@ body {
     width: 100%;
 }
 .control {
+    margin-top: 1vw;
     display: flex;
     justify-content: space-between;
 }
@@ -43,25 +45,29 @@ input {
     display: flex;
     flex-direction: row;
 }
+
+
 label {
-    padding: 0.7rem;
-    margin: 0.5rem;
+    padding: 0.7vw;
+    cursor: pointer;
+}
+.dot {
+    display: block;
     cursor: pointer;
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
     background-color: mediumblue;
     border: 0.1rem solid mediumblue;
-
 }
-label:hover {
+label:hover .dot {
     background-color: peachpuff;
 }
-label:active {
+label:active .dot {
     border: 0.1rem solid peachpuff;
     background-color: mediumblue;
 }
-label:checked {
+label:checked .dot {
     background-color: #fff;
 }
 #slide1:checked ~ .control label:nth-of-type(1),
@@ -84,9 +90,9 @@ label:checked {
 
 }
 #slide4:checked ~ .images img {
-    transform: translateX(-350%);
+    transform: translateX(-300%);
 }
 #slide5:checked ~ .images img {
-    transform: translateX(-550%);
+    transform: translateX(-400%);
 }
 
