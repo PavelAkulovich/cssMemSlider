@@ -9,7 +9,7 @@ body {
 .container {
 
     margin: 0 auto;
-    width: 50vw;
+    width: 55vw;
 }
 
 .images {
@@ -50,6 +50,7 @@ input {
 label {
     padding: 0.7vw;
     cursor: pointer;
+    border-radius: 50%;
 }
 .dot {
     display: block;
@@ -75,7 +76,7 @@ label:checked .dot {
 #slide3:checked ~ .control label:nth-of-type(3),
 #slide4:checked ~ .control label:nth-of-type(4),
 #slide5:checked ~ .control label:nth-of-type(5) {
-	background: #ddd;
+	background-color: royalblue;
 }
 
 
@@ -95,4 +96,70 @@ label:checked .dot {
 #slide5:checked ~ .images img {
     transform: translateX(-400%);
 }
+
+.description {
+    display: flex;
+}
+
+.text {
+display: none;
+font-size: 1.5rem;
+/* opacity: 0; */
+/* transition: transform ease-in-out .5s, opacity ease-in-out .5s; */
+/* width: 30vw;
+height: 3vh; */
+}
+
+#slide1:checked ~ .control .text:nth-child(1),
+#slide2:checked ~ .control .text:nth-child(2),
+#slide3:checked ~ .control .text:nth-child(3),
+#slide4:checked ~ .control .text:nth-child(4),
+#slide5:checked ~ .control .text:nth-child(5) {
+	display: block;
+    animation: 1s ease-in-out identifier;
+    /* opacity: 1; */
+    
+    /* animation: 1s ease-in-out;
+    transition: 1s ease-in-out; */
+}
+@keyframes identifier {
+    from {
+        opacity: 0;
+        transform: translateY(-30%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@media (max-width: 40rem) {
+    label {
+        padding: 1vw;
+    }
+    .container {
+        width: 70vw;
+    }
+    .text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 26.5rem) {
+    .control {
+        flex-direction: column-reverse;
+    }
+    .description, .dots {
+        margin-top: 1rem;
+    }
+
+    .dots {
+        align-self: center;
+    }
+
+    
+
+}    
+
+
 
