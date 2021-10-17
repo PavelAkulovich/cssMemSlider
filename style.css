@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: gray;
+}
+
+.container {
+
+    margin: 0 auto;
+    width: 55vw;
+}
+
+.images {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    max-width: 150rem;
+    max-height: 70vh;
+    border-radius: 2vw;
+    border: mediumblue solid 0.1rem;
+}
+
+.img {
+    max-width: 100%;
+    
+    display: block;
+    object-fit: contain;
+    transition: transform 1s;
+}
+
+.img1 {
+    width: 100%;
+}
+.control {
+    margin-top: 1vw;
+    display: flex;
+    justify-content: space-between;
+}
+input {
+    display: none;
+}
+.dots {
+    display: flex;
+    flex-direction: row;
+}
+
+
+label {
+    padding: 0.7vw;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.dot {
+    display: block;
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: mediumblue;
+    border: 0.1rem solid mediumblue;
+}
+label:hover .dot {
+    background-color: peachpuff;
+}
+label:active .dot {
+    border: 0.1rem solid peachpuff;
+    background-color: mediumblue;
+}
+label:checked .dot {
+    background-color: #fff;
+}
+#slide1:checked ~ .control label:nth-of-type(1),
+#slide2:checked ~ .control label:nth-of-type(2),
+#slide3:checked ~ .control label:nth-of-type(3),
+#slide4:checked ~ .control label:nth-of-type(4),
+#slide5:checked ~ .control label:nth-of-type(5) {
+	background-color: royalblue;
+}
+
+
+#slide1:checked ~ .images img {
+    transform: translateX(0);
+}
+#slide2:checked ~ .images img {
+    transform: translateX(-100%);
+}
+#slide3:checked ~ .images img {
+    transform: translateX(-200%);
+
+}
+#slide4:checked ~ .images img {
+    transform: translateX(-300%);
+}
+#slide5:checked ~ .images img {
+    transform: translateX(-400%);
+}
+
+.description {
+    display: flex;
+}
+
+.text {
+display: none;
+font-size: 1.5rem;
+/* opacity: 0; */
+/* transition: transform ease-in-out .5s, opacity ease-in-out .5s; */
+/* width: 30vw;
+height: 3vh; */
+}
+
+#slide1:checked ~ .control .text:nth-child(1),
+#slide2:checked ~ .control .text:nth-child(2),
+#slide3:checked ~ .control .text:nth-child(3),
+#slide4:checked ~ .control .text:nth-child(4),
+#slide5:checked ~ .control .text:nth-child(5) {
+	display: block;
+    animation: 1s ease-in-out identifier;
+    /* opacity: 1; */
+    
+    /* animation: 1s ease-in-out;
+    transition: 1s ease-in-out; */
+}
+@keyframes identifier {
+    from {
+        opacity: 0;
+        transform: translateY(-30%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@media (max-width: 40rem) {
+    label {
+        padding: 1vw;
+    }
+    .container {
+        width: 70vw;
+    }
+    .text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 26.5rem) {
+    .control {
+        flex-direction: column-reverse;
+    }
+    .description, .dots {
+        margin-top: 1rem;
+    }
+
+    .dots {
+        align-self: center;
+    }
+
+    
+
+}    
+
+
+
